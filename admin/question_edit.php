@@ -27,75 +27,26 @@ $topic = $_POST['topic'];
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
       // output data of each row
+      $no = 1;
       while($row = $result->fetch_assoc()) {
 $id=$row['sl_no'];
 $question =$row['question'];
-$op1 = $row['option1'];
-$op2 = $row['option2'];
-$op3 = $row['option3'];
-$op4 = $row['option4'];
-$ans = $row['answer'];
-$explain = $row['explanation'];
      ?>
-  <form method="POST" action="questioninsert.php" class="">
+  <form method="POST" action="questionupdate.php" class="">
     <input type="hidden" name="id" value="<?php echo "$id"; ?>">
+    <input type="hidden" name="topich" value="<?php echo "$topic"; ?>">
     <div class="form-group row">
-      <label for="colFormLabel" class="col-sm-2 col-form-label">Topic :</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" id="colFormLabel" name="topic" value="<?php echo "$topic"; ?>" >
-        <input type="hidden" name="topich" value="<?php echo "$topic"; ?>">
+      <label for="colFormLabel" class="col-sm-2 col-form-label">Question <?php echo "$no";?>:</label>
+      <div class="col-sm-7">
+      <textarea name="question" class="form-control" rows="2" cols="80" required> <?php echo "$question"; ?></textarea>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabel" class="col-sm-2 col-form-label">Question :</label>
-      <div class="col-sm-8">
-        <!-- <input type="text" class="form-control" id="colFormLabel" value="<?php echo "$topic"; ?>" disabled> -->
-        <textarea name="question" class="form-control" rows="4" cols="80" required> <?php echo "$question"; ?></textarea>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabel" class="col-sm-2 col-form-label">Option 1:</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" id="colFormLabel" name="op1" value="<?php echo "$op1"; ?>" required>
-      </div>
-    </div>  <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Option 2:</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="colFormLabel" name="op2" value="<?php echo "$op2"; ?>" required>
+              <div class="col-sm-3">
+          <input type="submit" class="btn btn-outline-success btn-lg" name="submit" value="Edit" >
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Option 3:</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="colFormLabel" name="op3" value="<?php echo "$op3"; ?>" required>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Option 4:</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="colFormLabel" name="op4" value="<?php echo "$op4"; ?>" required>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Correct Answer :</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="colFormLabel" name="answer" value="<?php echo "$ans"; ?>" required>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Explanation :</label>
-        <div class="col-sm-8">
-          <!-- <input type="text" class="form-control" id="colFormLabel" value="<?php echo "$topic"; ?>" disabled> -->
-          <textarea name="explain" class="form-control" rows="4" cols="80" required><?php echo "$explain"; ?></textarea>
-        </div>
-      </div>
-      <div class="form-group row">
-              <div class="col-sm-12">
-          <input type="submit" class="btn btn-outline-success btn-lg" name="submit" value="Submit" >
-        </div>
-      </div>
+            </div>
   </form>
-  <?php }
+  <?php
+$no++;}
   } ?>
   </div>
   </div>
