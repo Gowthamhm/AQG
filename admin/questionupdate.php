@@ -3,6 +3,24 @@ include '../config.php';
 include '../session.php';
 include '../error.php';
 include 'nav.php';
+
+
+if(isset($_POST['delete'])){
+  $id=$_POST['id'];
+  $topic = $_POST['topich'];
+  echo "$id , $topic";
+  $query = "DELETE from questions where topic = '$topic' and sl_no = '$id'";
+  if($conn->query($query) === TRUE){
+        echo "<script>alert('Deleted sucussfully')</script>";
+    header("location:admin_home.php");
+    echo "inserted sucussfully";
+    }
+  else {
+        echo "<script>alert('Deleted unsucussfully')</script>";
+      header("location:admin_home.php");
+      }
+}
+
 if (isset($_POST['submit'])) {
 $topic = $_POST['topich'];
 $id = $_POST['id'];

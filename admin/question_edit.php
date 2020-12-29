@@ -37,12 +37,15 @@ $question =$row['question'];
     <input type="hidden" name="topich" value="<?php echo "$topic"; ?>">
     <div class="form-group row">
       <label for="colFormLabel" class="col-sm-2 col-form-label">Question <?php echo "$no";?>:</label>
-      <div class="col-sm-7">
+      <div class="col-sm-6">
       <textarea name="question" class="form-control" rows="2" cols="80" required> <?php echo "$question"; ?></textarea>
       </div>
-              <div class="col-sm-3">
+              <div class="col-sm-2">
           <input type="submit" class="btn btn-outline-success btn-lg" name="submit" value="Edit" >
         </div>
+        <div class="col-sm-2">
+    <input type="submit" class="btn btn-outline-success btn-lg" name="delete" value="Delete" >
+  </div>
             </div>
   </form>
   <?php
