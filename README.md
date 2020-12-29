@@ -2,7 +2,7 @@
 
 Download the zip file and extract the file and place into /var/www/html/
 
-#DataBase
+# DataBase
 
 In mysql create database with name aqg
 Commands :
