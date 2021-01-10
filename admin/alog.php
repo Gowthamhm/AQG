@@ -25,7 +25,7 @@ if($pass==$dbpass && ($user == $dbfname || $user == $dbemail)){
 else {
   // echo "Not a user";
   echo "<script>alert('In proper Credentials')</script>";
-    header("location:admin_login.html");
+    header("location:admin_login.php");
 }
   }
 } else {
