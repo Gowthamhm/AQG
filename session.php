@@ -10,4 +10,10 @@ echo '</script>';
 // echo "$_SESSION[user]";
 // echo "$_SESSION[club]";
        }
+       if (!isset($_SESSION['time'])) {
+         echo "timer not set";
+       }
+       else {
+         echo "timer set";
+       }
 ?>
