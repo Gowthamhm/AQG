@@ -8,7 +8,7 @@ include 'nav.php';
   <head>
     <meta charset="utf-8" >
     <title>USER</title>
-    <!-- <link href="../assets/css/bootstrap.css" rel="stylesheet" /> -->
+    <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
 
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/areg.css" rel="stylesheet" />
@@ -40,7 +40,7 @@ include 'nav.php';
               $imageURL = 'admin/img/'.$row["topicfilename"];
         ?>
         <h1><?php echo "$topic"; ?></h1>
-        <form class="" action="quiz.php" method="post">
+        <form class="" action="instruction.php" method="post">
           <input type="hidden" name="topic" value="<?php echo  $topic; ?>">
           <input type="image" name="img" src="<?php echo $imageURL; ?>"width="200px" height="200px" value=""> <br>
           <div class="row">

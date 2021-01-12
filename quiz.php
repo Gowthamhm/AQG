@@ -2,12 +2,12 @@
 include 'config.php';
 include 'error.php';
 include 'timesession.php';
-if(isset($_POST['submit']))
+if(isset($_POST['isubmit']))
 {
 
   $topic = $_POST['topic'];
   $qno = $_POST['qno'];
-  $_SESSION['time'] = $qno*60;
+  // $_SESSION['time'] = $qno*60;
   $_SESSION['score'] = 0;
 }
 $rowperpage = 1;
@@ -65,7 +65,6 @@ if (isset($_POST['submitf'])) {
   $result = mysqli_query($conn,$sql);
   while($fetch = mysqli_fetch_array($result)){
     $ans = $fetch['answer'];
-    // echo "$ans";
   }
   if ($ans === $sop) {
 $_SESSION['score'] = $_SESSION['score']+1;
@@ -78,7 +77,6 @@ $_SESSION['score'] = $_SESSION['score']+1;
       $row = $val;
   }
   header("location:result.php");
-// echo $_SESSION['score'];
 }
 ?>
 <!DOCTYPE html>
@@ -93,7 +91,7 @@ $_SESSION['score'] = $_SESSION['score']+1;
       <body style="background:#EEF2F7;
     width: 80%;
     height: 80vh;
-    margin-left: 114px" onload="setInterval('incs()', 1000)">
+    margin-left: 114px">
     <span id="carb"> <?php  ?></span>
     <?php
     $allcount = $qno;
