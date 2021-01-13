@@ -18,12 +18,14 @@ if($answer == $op1 ||$answer == $op2 ||$answer == $op3 ||$answer == $op4){
   $sql ="UPDATE questions SET topic = '$topic',question ='$question' ,option1 = '$op1',option2 ='$op2' ,option3 = '$op3',option4 = '$op4',answer = '$answer',explanation = '$explain' where sl_no = $id";
   if($conn->query($sql) === TRUE){
         echo "<script>alert('updated sucussfully');</script>";
-    header("location:admin_home.php");
-    echo "inserted sucussfully";
+          header( "refresh:1;url=admin_home.php" );
+    // header("location:admin_home.php");
+    // echo "inserted sucussfully";
     }
   else {
         echo "<script>alert('updated unsucussfully');</script>";
-      header("location:error.php");
+      // header("location:error.php");
+        header( "refresh:1;url=admin_home.php" );
       }
 }else {
   echo " Please provide a answer within the option";

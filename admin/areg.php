@@ -15,15 +15,18 @@ echo "$fname,$lname,$gender,$pno,$mail,$pass,$cpass";
 if ($cpass == $pass) {
   $sql ="INSERT INTO admin_registration(first_name,last_name,phone_number,email,password,gender) VALUES('$fname','$lname','$pno','$mail','$pass','$gender')";
   if($conn->query($sql) === TRUE){
-    header("location:admin_login.php");
+      echo "<script>alert('registered successfully')</script>";
+header( "refresh:1;url=admin_login.php" );
     }
   else {
-      header("location:admin_reg.php");
+      echo "<script>alert('Registered Unsuccessfully')</script>";
+    header( "refresh:1;url=admin_reg.php" );
     // echo "inserted unsucussfully";
       }
     }
     else {
-        header("location:admin_reg.php");
+        echo "<script>alert('Entered password and confirm passwod are not equal')</script>";
+      header( "refresh:1;url=admin_reg.php" );
       // echo "Password are not Equal";
     }
 }

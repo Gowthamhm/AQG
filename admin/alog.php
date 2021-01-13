@@ -19,13 +19,14 @@ $dbpass = $row["password"];
 if($pass==$dbpass && ($user == $dbfname || $user == $dbemail)){
   // echo "proper user";
   $_SESSION['user'] = $user;
-  header("location:admin_home.php");
+    echo "<script>alert('Login successfully')</script>";
+header( "refresh:1;url=admin_home.php" );
   break;
 }
 else {
   // echo "Not a user";
   echo "<script>alert('In proper Credentials')</script>";
-    header("location:admin_login.php");
+header( "refresh:1;url=admin_home.php" );
 }
   }
 } else {
@@ -33,7 +34,8 @@ else {
 }
 }
 else {
-header("location:admin_reg.html");
+  header( "refresh:1;url=admin_reg.php" );
+// header("location:admin_reg.html");
 }
 
  ?>

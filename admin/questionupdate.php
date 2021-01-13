@@ -12,12 +12,13 @@ if(isset($_POST['delete'])){
   $query = "DELETE from questions where topic = '$topic' and sl_no = '$id'";
   if($conn->query($query) === TRUE){
         echo "<script>alert('Deleted sucussfully')</script>";
-    header("location:admin_home.php");
-    echo "inserted sucussfully";
+  header( "refresh:1;url=admin_home.php" );
+    // echo "inserted sucussfully";
     }
   else {
         echo "<script>alert('Deleted unsucussfully')</script>";
-      header("location:admin_home.php");
+      // header("location:admin_home.php");
+        header( "refresh:1;url=admin_home.php" );
       }
 }
 
