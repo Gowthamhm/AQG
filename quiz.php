@@ -2,13 +2,20 @@
 include 'config.php';
 include 'error.php';
 include 'timesession.php';
+
 if(isset($_POST['isubmit']))
 {
-
-  $topic = $_POST['topic'];
-  $qno = $_POST['qno'];
-  // $_SESSION['time'] = $qno*60;
+  // $topic = $_POST['topic'];
+  // $qno = $_POST['qno'];
+  // // $_SESSION['time'] = $qno*60;
+  // $_SESSION['score'] = 0;
+  // echo "$_SESSION[topic]";
+  // echo "$_SESSION[qno]";
+  // echo "$_SESSION[score]";
+  $topic = $_SESSION['topic'];
+  $qno = $_SESSION['qno'];
   $_SESSION['score'] = 0;
+  echo "$topic,$qno,$_SESSION[score],$_SESSION[name],$_SESSION[usn]";
 }
 $rowperpage = 1;
 $row = 0;
@@ -72,6 +79,7 @@ $_SESSION['score'] = $_SESSION['score']+1;
   else{
     $_SESSION['score'] = $_SESSION['score'];
   }
+
   $val = $row + $rowperpage;
   if( $val < $allcount ){
       $row = $val;

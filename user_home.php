@@ -31,8 +31,7 @@ include 'nav.php';
       <div class="row">
           <?php
         $query = $conn->query("SELECT * FROM topic");
-
-        if($query->num_rows > 0){
+          if($query->num_rows > 0){
           while($row = $query->fetch_assoc()){
             $topic = $row['topic'];
             ?>
@@ -40,7 +39,7 @@ include 'nav.php';
               $imageURL = 'admin/img/'.$row["topicfilename"];
         ?>
         <h1><?php echo "$topic"; ?></h1>
-        <form class="" action="instruction.php" method="post">
+        <form class="" action="event_reg_check.php" method="post">
           <input type="hidden" name="topic" value="<?php echo  $topic; ?>">
           <input type="image" name="img" src="<?php echo $imageURL; ?>"width="200px" height="200px" value=""> <br>
           <div class="row">
@@ -50,10 +49,20 @@ include 'nav.php';
             $fetchresult = mysqli_fetch_array($result);
             $allcount = $fetchresult['cntrows'];
             // echo "$allcount";
+            $eventsql = $conn->query('select * from event a,topic b where lower(a.event_name) = lower(b.topic)');
+            // $eventsql = "select * from event a,topic b where lower(a.event_name) = lower(b.topic)";
+            if($eventsql->num_rows > 0){
+                while($row = $eventsql->fetch_assoc()){
+                  if($row['event_name'] == $topic){
+                    // echo "$row[topic]";
+                  }else {
+                  ?>
+                  <div class=" col-lg-5">
+                <input type="number" name="qno" class="form-control" placeholder="Enter the number of questions" min="1" max="<?php echo "$allcount" ?>">
+                  </div>
+                  <?php
+                  }
              ?>
-            <div class=" col-lg-5">
-          <input type="number" name="qno" class="form-control" placeholder="Enter the number of questions" min="1" max="<?php echo "$allcount" ?>">
-            </div>
             <div class=" col-lg-5">
           <input type="submit" name="submit" class="btn btn-lg btn-primary" value="Take Quiz">
             </div>
@@ -62,7 +71,10 @@ include 'nav.php';
         <br>
           <!-- <a href="question.php"><img src="<?php echo $imageURL; ?>" width="200px" height="200px" alt="" /></a> -->
       </div>
-        <?php }
+        <?php
+      }
+    }
+      }
         }else{ ?>
           <p>No image(s) found...</p>
         <?php } ?>

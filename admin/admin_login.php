@@ -23,7 +23,7 @@
                                   <div class="form-group input-group centera">
                                     <label >Sign In</label>
                                      </div>
-                                     <label for="username`">UserName</label>
+                                     <label for="username">UserName</label>
                                        <div class="form-group input-group">
                                          <span class="input-group-addon"><i class="fa fa-user"  ></i></span>
                                          <input type="text" class="form-control" name="user" placeholder="username" required/>

@@ -2,14 +2,14 @@
 include 'config.php';
 include 'error.php';
 // include 'timesession.php';
-if(isset($_POST['submit']))
-{
-
-  $topic = $_POST['topic'];
-  $qno = $_POST['qno'];
-  // $_SESSION['time'] = $qno*60;
-  $_SESSION['score'] = 0;
-}
+// if(isset($_POST['submit']))
+// {
+//   $topic = $_POST['topic'];
+//   $qno = $_POST['qno'];
+//     // $_SESSION['time'] = $qno*60;
+//   $_SESSION['score'] = 0;
+// }
+// echo "$qno";
  ?>
  <!DOCTYPE html>
 <html lang="en" dir="ltr">
