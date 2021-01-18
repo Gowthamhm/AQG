@@ -25,6 +25,9 @@
                 <li class="nav-item active">
                     <a class="nav-link pl-0" href="admin_home.php"> Home<span class="sr-only">Home</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link pl-0" href="result.php"> Event Results<span class="sr-only">Event Results</span></a>
+                </li>
             </ul>
         </div>
         <a href="/" class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25">Automatic Quiz Generator</a>
