@@ -66,25 +66,35 @@ $name = strtoupper($_POST['name']);
 $_SESSION['name']=$name;
 $usn = strtoupper($_POST['usn']);
 $_SESSION['usn']=$usn;
-echo "$topic $name $usn";
+$count = 0;
+// echo "$topic $name $usn";
 // $query = "SELECT * from event_req where event_name='$topic'";
-$query = "SELECT * from event_req";
-// if($res=mysqli_query($conncms, $query)) {
-//   echo "string";
-//   if($row = mysqli_fetch_array($res)){
-//   echo "$row[event_name],$row[name],$row[usn]";
-// }
-// }
+$resultcheck = "SELECT * FROM result where event_name='$topic' and name ='$name' and usn='$usn'";
+$resultchecke = $conn->query($resultcheck);
+if ($resultchecke->num_rows > 0) {
+  while($row = $resultchecke->fetch_assoc()) {
+    // echo "$row[event_name],$row[name],$row[usn]";
+    if(strtoupper($topic)== strtoupper($row['event_name']) && strtoupper($name) == strtoupper($row['name']) && strtoupper($usn) == strtoupper($row['usn'])){
+    //         // echo "<script>alert('You Already taken the exam you can't able to take quiz once more')</script>";
+            header( "refresh:0;url=user_home.php" );
+            $count = 1;
+    echo "already registered";
+    }
+  }
+}
+if($count==1){
+
+}else{
+// $query = "SELECT * from event_req";
 $query = "SELECT * from event_reg where event_name='$topic'";
 $result = $conncms->query($query);
-if ($result->num_rows > 0) {
-  // output data of each row
-  $no = 1;
+if ($result->num_rows > 0) {  // output data of each row
+  // $no = 1;
   while($row = $result->fetch_assoc()) {
     if(strtoupper($topic)== strtoupper($row['event_name']) && strtoupper($name) == strtoupper($row['name']) && strtoupper($usn) == strtoupper($row['usn'])){
       $sql ="INSERT INTO result(event_name,name,usn) VALUES('$row[event_name]','$row[name]','$row[usn]')";
       if($conn->query($sql) === TRUE){
-          echo "<script>alert('Ready to take $topic')</script>";
+          // echo "<script>alert('Ready to take $topic')</script>";
     header( "refresh:0;url=instruction.php" );
         }
       else {
@@ -92,6 +102,7 @@ if ($result->num_rows > 0) {
         header( "refresh:1;url=user_home.php" );
     }}
       // echo "<script>alert('please provide a proper information')</script>";
+}
 }
 }
 } ?>

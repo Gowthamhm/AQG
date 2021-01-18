@@ -15,7 +15,7 @@ if(isset($_POST['isubmit']))
   $topic = $_SESSION['topic'];
   $qno = $_SESSION['qno'];
   $_SESSION['score'] = 0;
-  echo "$topic,$qno,$_SESSION[score],$_SESSION[name],$_SESSION[usn]";
+  // echo "$topic,$qno,$_SESSION[score],$_SESSION[name],$_SESSION[usn]";
 }
 $rowperpage = 1;
 $row = 0;
