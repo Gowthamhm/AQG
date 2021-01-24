@@ -5,9 +5,9 @@ session_start();
 if (isset($_POST['submitl'])) {
   $user = $_POST['user'];
   $pass = $_POST['pass'];
-  echo "$user,$pass";
+  // echo "$user,$pass";
 
-$query = "SELECT * from admin_registration";
+$query = "SELECT * from admin_registration where password = '$pass' and (first_name ='$user' or email = '$user')";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
   // output data of each row
@@ -30,7 +30,8 @@ header( "refresh:0;url=admin_login.php" );
 }
   }
 } else {
-  // echo "0 results";
+  echo "<script>alert('In proper Credentials')</script>";
+header( "refresh:0;url=admin_login.php" );
 }
 }
 else {
