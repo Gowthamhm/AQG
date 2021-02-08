@@ -26,6 +26,21 @@ $topic = $_POST['topic'];
 echo "$topic,$filename.$ext";
 $filen ="$filename.$ext";
 echo "$topic,$filen";
+$sqlf ="select * from topic";
+$result = $conn->query($sqlf);
+$check=0;
+if($result->num_rows>0){
+  while($row = $result->fetch_assoc()){
+    if($row['topic'] == $topic){
+      $check =1;
+      break;
+    }
+  }
+}
+if($check == 1){
+  echo "<script>alert('Already Entered')</script>";
+header( "refresh:0;url=admin_home.php" );
+}else {
 $sql ="INSERT INTO topic(topic,topicfilename) VALUES('$topic','$filen')";
 if($conn->query($sql) === TRUE){
   header("location:admin_home.php");
@@ -34,5 +49,6 @@ else {
     // header("location:admin_reg.html");
   echo "inserted unsucussfully";
     }
+  }
 }
 ?>

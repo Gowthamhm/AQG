@@ -8,7 +8,7 @@ include 'config.php';
 // echo "<h1>Your Qno is :";echo $_SESSION['qno'];echo"</h1>";
 if(!isset($_SESSION['name']) && !isset($_SESSION['usn'])){
 // echo "name and usn is empty";
-echo "<h1>Your Score is :";echo $_SESSION['score'];echo"</h1>";
+echo "<h1>Your Score is :";echo $_SESSION['score']."/".$_SESSION['qno'];echo"</h1>";
 header( "refresh:4;url=sessionend.php" );
 }else{
   $sql ="UPDATE result set result ='$_SESSION[score]' where event_name='$_SESSION[topic]' and name ='$_SESSION[name]'and usn ='$_SESSION[usn]'";
