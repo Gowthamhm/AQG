@@ -36,4 +36,4 @@ sudo chmod 777 /var/www/html/aqg/admin/img/
 
 
 # Note
-Before start the Automatic Quiz Generator System complete the procedure of Club`s Mangement System. Later start the AQG System on browser, Because Automatic Quiz Generator System have a interaction with  with the Club`s Mangement System.
+Before start the Automatic Quiz Generator System complete the procedure of Club\`s Mangement System. Later start the AQG System on browser, Because Automatic Quiz Generator System have a interaction with  with the Club\`s Mangement System.
